@@ -94,12 +94,9 @@ def lib_main():
             print(books)
             ask_save = input('\nDo you want to Export to a TxtFile [y/n]? ')
             if ask_save.upper().lower().startswith("y"):
-                file = open('Books.txt','w')
-                file.write(books)
-                file.close()
+                with open('Books.txt','w') as file:
+                    file.write(books)
                 print('\n It is done :) ')
-            else:
-                pass
         elif read_ans == '2':
             lib.execute('''
                         select * from Members
@@ -111,13 +108,9 @@ def lib_main():
             print(members)
             ask_save = input('\nDo you want to Export to a TxtFile [y/n]? ')
             if ask_save.upper().lower().startswith("y"):
-                file = open('Members.txt','w')
-                file.write(members)
-                file.close()
+                with open('Members.txt','w') as file:
+                    file.write(members)
                 print('\n It is done :) ')
-            else:
-                pass
-
     if answer == '3':
         tables()
         del_ans = input(
